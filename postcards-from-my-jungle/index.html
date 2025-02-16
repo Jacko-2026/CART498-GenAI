@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Lo-Fi Jungle</title>
+    <style>
+        body {
+            font-family: 'Courier New', monospace;
+            background-color: #4CAF50;
+            color: white;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 3rem;
+            margin-top: 20px;
+        }
+
+        .image-container {
+            width: 80%;
+            margin: auto;
+            text-align: center;
+            padding-top: 20px;
+        }
+
+        img {
+            width: 70%;
+            border: 5px solid white;
+            border-radius: 15px;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .animal-info {
+            margin-top: 20px;
+            font-size: 1.2rem;
+        }
+
+        .animal-phrase {
+            font-style: italic;
+            color: #FFD700;
+        }
+
+        .sound-button {
+            background-color: #3e8e41;
+            padding: 10px 20px;
+            border: none;
+            color: white;
+            font-size: 1.1rem;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .sound-button:hover {
+            background-color: #45a049;
+        }
+
+        footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <h1>Welcome to My Lo-Fi Jungle</h1>
+
+    <div class="image-container">
+        <!-- Displaying images, phrases, and sound controls -->
+        <img id="animalImage" src="image1.jpg" alt="Animal Image">
+        
+        <div class="animal-info">
+            <p id="animalPhrase" class="animal-phrase">Greeting from the jungle...</p>
+            <audio id="animalSound" controls>
+                <source src="sound1.mp3" type="audio/mp3">
+                Your browser does not support the audio element.
+            </audio>
+            <br><br>
+            <button class="sound-button" onclick="playSound()">Play Sound</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>Created by Jack | Lo-Fi Jungle Experience</p>
+    </footer>
+
+    <script>
+        // Arrays containing image, phrase, and sound paths
+        let images = ["image1.jpg", "image2.jpg", "image3.jpg"];
+        let phrases = [
+            "Rrrrraaahhh! Welcome to the Jungle.",
+            "Chirp chirp! I am the Suncaller.",
+            "Grrrroooar! Fear me, the Mighty Beast.",
+            "Hisssss... A quiet observer in the shadows."
+        ];
+        let sounds = ["sound1.mp3", "sound2.mp3", "sound3.mp3", "sound4.mp3"];
+        let currentIndex = 0;
+
+        // Function to change the image, phrase, and sound every 5 seconds
+        function showNextAnimal() {
+            currentIndex = (currentIndex + 1) % images.length; // Cycle through images
+            document.getElementById("animalImage").src = images[currentIndex]; // Update image
+            document.getElementById("animalPhrase").innerHTML = phrases[currentIndex]; // Update phrase
+            document.getElementById("animalSound").src = sounds[currentIndex]; // Update sound
+        }
+
+        // Function to play the animal sound
+        function playSound() {
+            document.getElementById("animalSound").play();
+        }
+
+        // Change animal info every 5 seconds
+        setInterval(showNextAnimal, 5000); // 5 seconds
+
+    </script>
+
+</body>
+</html>
