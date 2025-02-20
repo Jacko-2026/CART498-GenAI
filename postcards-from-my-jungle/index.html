@@ -11,7 +11,7 @@
             color: white;
             margin: 0;
             padding: 0;
-            overflow: hidden;
+            overflow: scroll;
         }
 
         h1 {
@@ -77,36 +77,33 @@
 
     <div class="image-container">
         <!-- Displaying images, phrases, and sound controls -->
-        <img id="animalImage" src="image1.jpg" alt="Animal Image">
+        <img id="animalImage" src="images/image01.png" alt="Animal Image">
         
         <div class="animal-info">
             <p id="animalPhrase" class="animal-phrase">Greeting from the jungle...</p>
             <audio id="animalSound" controls>
-                <source src="sound01.wav" type="audio/wav">
+                <audio controls autoplay> <source src="sounds/sound01.wav" type="audio/wav">
                 Your browser does not support the audio element.
+            </audio>
             </audio>
             <br><br>
             <button class="sound-button" onclick="playSound()">Play Sound</button>
         </div>
     </div>
 
-    <footer>
-        <p>Created by Jack | Lo-Fi Jungle Experience</p>
-    </footer>
-
     <script>
         // Arrays containing image, phrase, and sound paths
-        let images = ["image01.png", "image02.png", "image03.png", "image04.png"];
+        let images = ["images/image01.png", "images/image02.png", "images/image03.png", "images/image04.png"];
         let phrases = [
             "Rrrrraaahhh! Welcome to the Jungle.",
             "Chirp chirp! I am the Suncaller.",
             "Grrrroooar! Fear me, the Mighty Beast.",
             "Hisssss... A quiet observer in the shadows."
         ];
-        let sounds = ["sound01.wav", "sound02.wav"];
+        let sounds = ["sounds/sound01.wav", "sounds/sound02.wav"];
         let currentIndex = 0;
 
-        // Function to change the image, phrase, and sound every 5 seconds
+        // Function to change the image, phrase, and sound every 30 seconds
         function showNextAnimal() {
             currentIndex = (currentIndex + 1) % images.length; // Cycle through images
             document.getElementById("animalImage").src = images[currentIndex]; // Update image
@@ -119,8 +116,8 @@
             document.getElementById("animalSound").play();
         }
 
-        // Change animal info every 5 seconds
-        setInterval(showNextAnimal, 5000); // 5 seconds
+        // Change animal info every 30 seconds
+        setInterval(showNextAnimal, 30000); // 30 seconds
 
     </script>
 
